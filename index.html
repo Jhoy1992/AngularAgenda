@@ -17,6 +17,8 @@
     <script src="js/services/contatosApiService.js"></script>
     <script src="js/services/operadorasApiService.js"></script>
     <script src="js/services/serialGeneratorService.js"></script>
+    <script src="js/filters/nameFilter.js"></script>
+    <script src="js/filters/ellipsisFilter.js"></script>
   </head>
   <body ng-controller="listaTelefonicaController">
     <div class="jumbotron">
@@ -49,8 +51,8 @@
           ng-repeat="contato in contatos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao"
         >
           <td><input type="checkbox" ng-model="contato.selecionado" /></td>
-          <td>{{contato.serial}}</td>
-          <td>{{contato.nome}}</td>
+          <td>{{contato.serial | ellipsis:8 }}</td>
+          <td>{{contato.nome | name }}</td>
           <td>{{contato.telefone}}</td>
           <td>{{contato.operadora.nome | lowercase}}</td>
           <td>{{contato.data | date:'dd/MM/yyyy HH:mm'}}</td>
@@ -132,6 +134,6 @@
       </button>
     </div>
 
-    <div ng-include="'view/footer.html'"></div>
+    <!-- <div ng-include="'view/footer.html'"></div> -->
   </body>
 </html>

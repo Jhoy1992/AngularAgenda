@@ -5,6 +5,7 @@
     <title>Lista Telefônica</title>
     <link rel="stylesheet" href="lib/bootstrap/bootstrap.css" />
     <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/ui.css" />
 
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular/angular-messages.js"></script>
@@ -19,14 +20,13 @@
     <script src="js/services/serialGeneratorService.js"></script>
     <script src="js/filters/nameFilter.js"></script>
     <script src="js/filters/ellipsisFilter.js"></script>
+    <script src="js/directives//uiAlertDirective.js"></script>
   </head>
   <body ng-controller="listaTelefonicaController">
     <div class="jumbotron">
       <h3>{{app}}</h3>
 
-      <div ng-show="message" class="alert alert-danger">
-        {{message}}
-      </div>
+      <div ui-alert></div>
 
       <input
         type="text"
@@ -134,6 +134,6 @@
       </button>
     </div>
 
-    <!-- <div ng-include="'view/footer.html'"></div> -->
+    <div ng-include="'view/footer.html'"></div>
   </body>
 </html>

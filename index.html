@@ -21,12 +21,15 @@
     <script src="js/filters/nameFilter.js"></script>
     <script src="js/filters/ellipsisFilter.js"></script>
     <script src="js/directives//uiAlertDirective.js"></script>
+    <script src="js/directives//uiDateDirective.js"></script>
   </head>
   <body ng-controller="listaTelefonicaController">
     <div class="jumbotron">
       <h3>{{app}}</h3>
 
-      <div ui-alert></div>
+      <ui-alert ng-show="error" title="Ops, aconteceu um problema!">
+        {{error}}
+      </ui-alert>
 
       <input
         type="text"
@@ -80,6 +83,15 @@
           placeholder="Telefone"
           ng-required="true"
           ng-pattern="/^\d{4,5}-\d{4}$/"
+        />
+
+        <input
+          type="text"
+          class="form-control"
+          ng-model="contato.data"
+          name="data"
+          placeholder="Data"
+          ui-date
         />
 
         <select
